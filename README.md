@@ -2,11 +2,21 @@
 
 This repository will contain validation and application data to the paper Expanding Frontiers of Complex Reaction Network Exploration through a General Reactive Machine Learning Potential, by S. Li et al.
 
-## Folder: mdcdnn
+## Installation
+
+### Requirements
+- SevenNet == 0.10.*
+- Python >= 3.8
+
+Once SevenNet is successfully installed, the MDCD-NN models can be invoked by the ASE calculator provided by SevenNet (https://github.com/MDIL-SNU/SEVENNet) or Gaussian interfaces provided by this repository.
+
+## Usage and descriptions
+
+### Folder: mdcdnn
 
 This folder contains MDCD-NN model ensembles (4 models for `l=2` and 4 for `l=3`).
 
-## Folder: Gaussian_interface
+### Folder: Gaussian_interface
 
 This folder contains the interface scripts for MDCD-NN to Gaussian 16.
 
@@ -22,12 +32,12 @@ Example: #p opt=(nomicro,calcfc,recalc=10) nosymm external='SevennClient.py'
 ```
 Finally, after all the calculations complete, one can terminate `SevennServer.py` simply by execuating `SevennTerminator.py`.
 
-## Folder: benchmark
+### Folder: benchmark
 
 `RGD1_s.wB97XD4.xyz`: `gCP(TZ)-wB97X-D4/def2-TZVP` calculated elementary reaction steps selected from the RGD1 dataset. Structures are sequenced by the order of `reactant_i`, `product_i`, `TS_i`, `reactant_i+1`, ...
 `Cyclo_s.wB97XD4.xyz`: `gCP(TZ)-wB97X-D4/def2-TZVP` calculated elementary reaction steps selected from the Cyclo[3+2] dataset. Structures are sequenced by the order of `reactant_A_i`, `reactant_B_i`, `product_i`, `TS_i`, `reactant_A_i+1`, ...
 
-## Folder: validation
+### Folder: validation
 
 All files with the name `rxn_{Tag:03d}.gjf` are starting reactant structures for 100 textbook elementary reactions investigated in this work. The files are in the Gaussian input `gjf` format except several additional lines behind the cartesian coordinates to specify the reaction coordinate (RC) used in CD calculations.
 
@@ -47,13 +57,13 @@ The tarball `MDCD-NN.tar.gz` contains the Gaussian 16 outputs of MDCD-NN compute
 
 The tarball `DFT.tar.gz` contains the Gaussian 16 outputs of `gCP(TZ)-wB97X-D4/def2-TZVP` computed `opt freq` jobs for each reactant, product and transition state (TS) of the 100 elementary reactions.
 
-## Folders: vindoline, endiandric and proline
+### Folders: vindoline, endiandric and proline
 
 All files with the suffix `cfms.xyz` are MDCD-NN-optimized conformers of intermediates and TSs. Each file represents one structural isomer, with multiple frames of structures within representing all conformational isomers of this isomer, sorted in order of relative Gibbs free energy from lowest to highest. The xyz-formatted comment line for each conformational isomer contains four numbers, from left to right, the electronic and Gibbs free energies in `a.u.`, and the relative electronic and Gibbs free energies in `kcal/mol` over the lowest-energy conformer of this structural isomer calculated with MDCD-NN, respectively.
 
 All files with the name `DFT.xyz` are `gCP(TZ)-wB97X-D4/def2-TZVP` optimized structures for the lowest-energy conformers involved in the MDCD-NN-calculated reaction networks. The name of each structure is noted in the xyz-formatted comment line.
 
-## Folder: benzo
+### Folder: benzo
 
 `benzo_dft.xyz`: `gCP(TZ)-wB97X-D4/def2-TZVP` optimized structures.
 `benzo_nnp.xyz`: MDCD-NN optimized structures involved in the double hydrogen transfer in 2,5-diamino-1,4-benzoquinone.
