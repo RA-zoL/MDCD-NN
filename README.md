@@ -67,3 +67,6 @@ All files with the name `DFT.xyz` are `gCP(TZ)-wB97X-D4/def2-TZVP` optimized str
 
 `benzo_dft.xyz`: `gCP(TZ)-wB97X-D4/def2-TZVP` optimized structures.
 `benzo_nnp.xyz`: MDCD-NN optimized structures involved in the double hydrogen transfer in 2,5-diamino-1,4-benzoquinone.
+
+## License
+This project is covered under the **Apache 2.0 License**.
