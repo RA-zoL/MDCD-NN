@@ -1,0 +1,40 @@
+# Common MD variables
+variable	NSTEPS		equal	2000000
+variable	TEMP		equal	300.0	# K
+variable	DUMP_FREQ	equal	20
+variable	THERMO_FREQ	equal	100
+variable	SEED		equal	12345
+variable	TAU_T		equal	0.10
+variable    p_id        world   ".0." #".1."  ".2." ".3."
+
+# System settings
+units		metal
+boundary	p p p
+atom_style	atomic
+neigh_modify	every 5 delay 50 check yes
+read_data	./geom.lmp
+mass	1	12.0107
+mass	2	14.0067
+mass	3	15.9994
+mass	4	1.00794
+
+
+# Forcefield settings
+pair_style  deepmd MDCD-NN_1.pth MDCD-NN_2.pth MDCD-NN_3.pth MDCD-NN_4.pth fparam 0.0 1 out_freq ${DUMP_FREQ} out_file model_devi${p_id}out
+pair_coeff * * C N O H
+
+# MD settings
+timestep	0.0005	# ps
+thermo		${THERMO_FREQ}
+thermo_style	custom step temp pe ke etotal
+thermo_modify	flush yes
+dump		MyDump all xyz ${DUMP_FREQ} dasa.lammps.xyz
+dump_modify	MyDump append yes element C N O H
+
+# Bias settings
+fix		Plumed all plumed plumedfile dasa.plumed.in outfile dasa.00.plumed.out
+velocity        all create ${TEMP} ${SEED} dist gaussian
+fix		Ensemble all nvt temp ${TEMP} ${TEMP} ${TAU_T}
+
+run		${NSTEPS}
+
