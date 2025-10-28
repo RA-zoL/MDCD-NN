@@ -37,7 +37,7 @@ Finally, after all the calculations complete, one can terminate `DPA3_Server.py`
 `RGD1_s.wB97XD4.xyz`: `gCP(TZ)-wB97X-D4/def2-TZVP` calculated elementary reaction steps selected from the RGD1 dataset. Structures are sequenced by the order of `reactant_i`, `product_i`, `TS_i`, `reactant_i+1`, ...
 `Cyclo_s.wB97XD4.xyz`: `gCP(TZ)-wB97X-D4/def2-TZVP` calculated elementary reaction steps selected from the Cyclo[3+2] dataset. Structures are sequenced by the order of `reactant_A_i`, `reactant_B_i`, `product_i`, `TS_i`, `reactant_A_i+1`, ...
 `RGD1_s.MDCD-NN.xyz`: `MDCD-NN` evaluated results for `RGD1_s` in the same order
-`Cyclo_s.MDCD-NN.xyz`: `MDCD-NN` evaluated results in `Cyclo_s` the same order
+`Cyclo_s.MDCD-NN.xyz`: `MDCD-NN` evaluated results in `Cyclo_s` the same order
 
 ### Folder: validation
 
@@ -68,11 +68,17 @@ All files with the name `DFT.xyz` are `gCP(TZ)-wB97X-D4/def2-TZVP` optimized str
 ### Folder: dasa
 
 `dasa_dft.xyz`: `gCP(TZ)-wB97X-D4/def2-TZVP` optimized structures.
+
 `dasa_mdcdnn.xyz`: MDCD-NN optimized structures involved in the DASA reaction.
+
 `dasa.lammps.in`: Lammps input file for committor-based OPES simulation of DASA reaction with MDCD-NN.
+
 `dasa.plumed.in`: Plumed input file for committor-based OPES simulation of DASA reaction with MDCD-NN.
+
 `geom.lmp`: Input geometry for committor-based OPES simulation of DASA reaction with MDCD-NN.
+
 `lmp-model_6_z_700K.pt`: Committor model file for committor-based OPES simulation of DASA reaction with MDCD-NN.
+
 `FES-data.dat`: Free energy surface and uncertainties for committor-based OPES simulation of DASA reaction with MDCD-NN.
 
 ## License
