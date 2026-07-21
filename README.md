@@ -1,6 +1,6 @@
 # MDCD-NN
 
-This repository will contain validation and application data to the paper Automated Exploration of Complex Reaction Networks Accelerated by a Data-Efficient Machine Learning Potential, by S. Li et al.
+This repository contains validation and application data to the paper A Data-Efficient Reactive Machine Learning Potential to Accelerate Automated Exploration of Complex Reaction Networks, by S. Li et al. (https://doi.org/10.31635/ccschem.026.202607339)
 
 ## Installation
 
